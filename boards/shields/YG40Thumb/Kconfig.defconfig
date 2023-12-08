@@ -1,0 +1,16 @@
+if BOARD_YG40THUMB
+
+  config ZMK_KEYBOARD_NAME
+    default "YG40Thumb"
+
+  if USB_DEVICE_STACK
+
+  config USB_NRFX
+    default y
+
+  endif  # USB_DEVICE_STACK
+
+  config BT_CTLR
+    default BT
+
+  endif # BOARD_YG40THUMB
