@@ -1,16 +1,19 @@
+# Copyright (c) 2021 Nick Winans
+# SPDX-License-Identifier: MIT
+
 if BOARD_YG40THUMB
 
-  config ZMK_KEYBOARD_NAME
-    default "YG40Thumb"
+config ZMK_KEYBOARD_NAME
+    default "yg40thumb"
 
-  if USB_DEVICE_STACK
+if USB_DEVICE_STACK
 
-  config USB_NRFX
+config USB_NRFX
     default y
 
-  endif  # USB_DEVICE_STACK
+endif # USB_DEVICE_STACK
 
-  config BT_CTLR
+config BT_CTLR
     default BT
 
-  endif # BOARD_YG40THUMB
+endif # BOARD_BOARD_YG40THUMB

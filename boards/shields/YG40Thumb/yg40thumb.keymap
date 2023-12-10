@@ -1,0 +1,56 @@
+/*
+ * Copyright (c) 2021 Nick Winans
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/bt.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+// ------------------------------------------------------------------------------------------
+// | ESC  |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |  [  |  ]  |   "|"   |
+// | BSPC  |  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  ;  |  '  |     ENTER    |
+// |  SHIFT  |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  /  |   UP   |  Shift  |
+// |  CTL  |  WIN  |  ALT  | FN2 | FN1 | Ctrl | Alt | FN1 | FN2 | ALT | Left | Down | Right |
+// ------------------------------------------------------------------------------------------
+// &gresc / &kp TAB / &kp BSLH
+            bindings = <
+  //&gresc  &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS &kp EQUAL  &kp BSPC
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//  C0        C1       C2       C3       C4      C5        C6       C7       C8         C9       C10       C11       C12        C13              // R0
+    &gresc    &kp Q    &kp W    &kp E    &kp R   &kp T     &kp Y    &kp U    &kp I      &kp O    &kp P     &kp LBKT  &kp RBKT   &kp BSPC         // R1
+    &kp BSPC  &kp A    &kp S    &kp D    &kp F   &kp G     &kp H    &kp J    &kp K      &kp L    &kp SEMI  &kp SQT   &kp RET                     // R2
+    &kp LSHFT &kp Z    &kp X    &kp C    &kp V   &kp B     &kp N    &kp M    &kp COMMA  &kp DOT  &kp FSLH  &kp UP    &kp RSHFT                   // R3
+    &kp LCTRL &kp LGUI &kp LALT &mo 2    &mo2    &kp LCTRL &kp LALT &mo 1    &mo 2      &kp RALT &kp LEFT  &kp DOWN  &kp RIGHT                   // R4
+                                                 &kp SPACE &kp LSHFT
+            >;
+        };
+
+        rgb_layer {
+// ------------------------------------------------------------------------------------------------
+// | BT CLR | F1  | F2  | F3  | F4  | F5  | F6  | F7  | F8  | F9  | F10 | F11 | F12 |  Del |
+// |  BT 1  |     |     |     |     |     |     |     |     |     |     |     |     |      |
+// |  Del   |     |     |     |     |     |     |     |     |     |     |     |     |      |
+// |        |     |     |     |     |     |     |     |     |     |     |                  |
+// |        |     |     |                             |     |     |     |     |
+// ------------------------------------------------------------------------------------------------
+            bindings = <
+  //&bt BT_CLR    &kp F1    &kp F2    &kp F3     &kp F4     &kp F5     &kp F6      &kp F7     &kp F8    &kp F9    &kp F10   &kp F11    &kp F12    &rgb_ug RGB_EFR
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//  C0            C1        C2        C3         C4         C5         C6          C7         C8        C9        C10       C11        C12        C13               //R0
+    &bt BT_CLR    &kp F1    &kp F2    &kp F3     &kp F4     &kp F5     &kp F6      &kp F7     &kp F8    &kp F9    &kp F10   &kp F11    &kp F12    &kp DEL           //R1
+    &bt BT_SEL 0  &kp LEFT  &kp DOWN  &kp RIGHT  &trans     &trans     &trans      &trans     &trans    &trans    &trans    &trans     &trans                       //R2
+    &kp DEL       &trans    &trans    &trans     &trans     &trans     &trans      &trans     &trans    &trans    &trans    &trans     &trans                       //R3
+    &trans        &trans    &trans    &trans     &trans     &trans     &trans      &trans     &trans    &trans    &kp HOME  &kp PG_DN  &kp END                      //R4
+                                                            &trans     &trans
+            >;
+        };
+    };
+};
